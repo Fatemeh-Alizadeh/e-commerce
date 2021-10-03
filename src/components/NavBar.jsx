@@ -15,7 +15,7 @@ export default function NavBar () {
                         <Link to='./WishList'><FaHeart/></Link>
                     </li>
                     <li>
-                        <Link to='./Home'>home</Link>
+                        <Link to='./'>home</Link>
                     </li>
                      <li>
                         <Link to='./Kids'>kids</Link>

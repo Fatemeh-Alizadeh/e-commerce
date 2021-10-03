@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 
 import data from './data';
@@ -26,8 +26,24 @@ const Slider = () => {
             setIndex(slider.length - 1);
         }
         return newIndex
-    });
+         });
+        
     }
+
+    useEffect(() => {
+        let changeSlide = setInterval(() => {
+            setIndex((index) => {
+                let newIndex = index + 1;
+                if (newIndex > slider.length - 1) {
+                    newIndex = 0;
+                }
+                return newIndex
+            })
+        }, 5000);
+        return () => {
+            clearInterval(changeSlide);
+        }
+    }, [index])
 
 
     return (
@@ -44,14 +60,14 @@ const Slider = () => {
                         position = 'lastSlide'
                     }
                     return (
-                        <article className={position} key={id}>
+                        <section className={position} key={id}>
                             <img className='slider-img' src={img} alt={category} />
                             <button type='button' className='button-left' onClick={prevSlide}><FaAngleDoubleLeft/></button>
                             <button type='button' className='button-right' onClick={nextSlide}><FaAngleDoubleRight/></button>
                             <h4 className='slider-name'>{ category}</h4>
                             <button type='button' className='slider-button'>shop now</button>
-                        </article >
-                       
+                        </section  >
+                        
                         
                     )
                     

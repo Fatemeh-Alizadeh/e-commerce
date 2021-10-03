@@ -23,7 +23,7 @@ function App() {
         <Route exact path="/WishList">
           <WishList />
         </Route>
-         <Route exact path="/Home">
+         <Route exact path="/">
           <Home />
         </Route>
         <Route path="/Kids">
