@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 import data from './data';
 
@@ -65,7 +66,13 @@ const Slider = () => {
                             <button type='button' className='button-left' onClick={prevSlide}><FaAngleDoubleLeft/></button>
                             <button type='button' className='button-right' onClick={nextSlide}><FaAngleDoubleRight/></button>
                             <h4 className='slider-name'>{ category}</h4>
-                            <button type='button' className='slider-button'>shop now</button>
+                            
+                            <Link
+                                to={category === 'new arrival' ? '../New' : category === 'sale' ? '../Sale' : '../Best'}>
+                                <button type='button' className='slider-button'>shop now</button>
+                            </Link>
+                                    
+                                    
                         </section  >
                         
                         
