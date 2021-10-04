@@ -181,6 +181,9 @@ section {
     height: 110vh;
     width: 90%;
   }
+  .slider-img {
+    width: 80%;
+  }
   .button-left,
   .button-right {
     top: 60%;

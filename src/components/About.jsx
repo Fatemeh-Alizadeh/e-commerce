@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 
 import { useGlobalContext } from '../context'
 
@@ -6,17 +6,21 @@ const About = () => {
 
     const [products, setProducts] = useGlobalContext();
 
-    const filterProduct = (name) => {
-        
-        const newProduct = products.filter((product) => product.name === 'about');
-        setProducts(newProduct)
+    const filterProduct =() => {
+         const newItems = products.filter((product) => product.name === 'about');
+    setProducts(newItems);
     }
+    /* useEffect(() => {
+       filterProduct();
+    }, []) */
+    
+    console.log(products)
     
 
     return (
-        <div className='About-section'>
+        <div className='about-section'>
             <div className="about-img">
-                {/* <img src={products.media.source} alt="" /> */}
+                {/* <img src={} alt="" /> */}
             </div>
             <div className="about-text">
                 <p>

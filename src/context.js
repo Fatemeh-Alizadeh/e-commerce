@@ -15,8 +15,7 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     fetchProducts();
   }, [])
-  
-  console.log(products);
+
     
   return (
     <AppContext.Provider
