@@ -1,34 +1,19 @@
-import React,{useEffect} from 'react';
-
+import React from 'react';
 import { useGlobalContext } from '../context'
 
+import about from '../img/heather-ford-5gkYsrH_ebY-unsplash.jpg'
+
 const About = () => {
-
-    const [products, setProducts] = useGlobalContext();
-
-    const filterProduct =() => {
-         const newItems = products.filter((product) => product.name === 'about');
-    setProducts(newItems);
-    }
-    /* useEffect(() => {
-       filterProduct();
-    }, []) */
-    
-    console.log(products)
-    
-
-    return (
-        <div className='about-section'>
-            <div className="about-img">
-                {/* <img src={} alt="" /> */}
-            </div>
-            <div className="about-text">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse laboriosam eius commodi cumque architecto sapiente tenetur porro error maxime expedita!
-                </p>
-                </div>
-            
+return (
+    <section className='about-section'>
+        <div className="about-picture">
+            <img className='about-img' src={about} alt='about-us-picture' />
         </div>
+        <div className="about-text">
+            <h2 className='about-title'> about us</h2>
+            <p className='about-des'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae alias nostrum facere quis! Magnam deserunt aut facilis dolore provident vitae eum. Aut eligendi ipsa laboriosam, autem maiores magni iste. Tempora officiis reiciendis dolore numquam aliquid atque cumque perspiciatis quam autem.</p>
+        </div>
+        </section>
     )
 }
 

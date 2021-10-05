@@ -44,6 +44,7 @@ h5,
 h6 {
   margin-bottom: 1.25rem;
   letter-spacing: var(--mainSpacing);
+  text-transform: uppercase;
 }
 p {
   margin-bottom: 1.25rem;
@@ -213,9 +214,38 @@ section {
 ABOUT
 ======
  */
-.About-section {
-  width: 90%;
-  height: 50%;
-  margin: 5rem auto;
-  overflow: auto;
+.about-section {
+  position: static;
+  opacity: 1;
+  width: 100%;
+  margin: 3rem auto;
+  padding: 1rem;
+  background-color: var(--primaryColor);
+}
+.about-picture {
+  width: 100%;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+}
+.about-img {
+  width: 60%;
+  border-radius: 280px 280px 0 0;
+}
+.about-text {
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .about-section {
+    display: flex;
+    align-items: center;
+  }
+  .about-picture {
+    flex-basis: 1000px;
+    flex-grow: 5;
+  }
+  .about-text {
+    flex-shrink: 2;
+  }
 }

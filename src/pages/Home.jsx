@@ -11,7 +11,6 @@ const Home = () => {
         <main>
             <Slider />
             <About />
-            <Footer />
         </main>
     )
 }

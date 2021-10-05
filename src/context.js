@@ -8,7 +8,7 @@ const AppProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
-    const data = await commerce.products.list();
+    const {data} = await commerce.products.list();
     setProducts(data);
   }
 
@@ -20,7 +20,7 @@ const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={
-        [products, setProducts]
+        products
       }
     >
       {children}
