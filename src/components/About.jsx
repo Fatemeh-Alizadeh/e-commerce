@@ -6,7 +6,7 @@ const About = () => {
 return (
     <section className='about-section'>
         <div className="about-picture">
-            <img className='about-img' src={about} alt='about-us-picture' />
+            <img className='about-img' src={about} alt='about-us' />
         </div>
         <div className="about-text">
             <h2 className='about-title'> about us</h2>
