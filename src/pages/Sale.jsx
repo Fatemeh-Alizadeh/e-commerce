@@ -2,8 +2,8 @@ import React from 'react'
 
 const Sale = () => {
     return (
-        <div>
-            sale page
+        <div className='comingSoon'>
+            <h3>coming soon</h3>
         </div>
     )
 }

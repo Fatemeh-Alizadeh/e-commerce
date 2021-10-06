@@ -6,6 +6,7 @@ import data from './data';
 
 
 
+
 const Slider = () => {
 
     const [slider, setSlider] = useState(data);
@@ -68,7 +69,7 @@ const Slider = () => {
                             <h4 className='slider-name'>{ category}</h4>
                             
                             <Link
-                                to={category === 'new arrival' ? '../New' : category === 'sale' ? '../Sale' : '../Best'}>
+                                to={category === 'new arrival' ? './New' : category === 'sale' ? './Sale' : './Best'}>
                                 <button type='button' className='slider-button'>shop now</button>
                             </Link>
                                     

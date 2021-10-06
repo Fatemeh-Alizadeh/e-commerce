@@ -2,8 +2,8 @@ import React from 'react'
 
 const WishList = () => {
     return (
-        <div>
-            wish list
+        <div className='comingSoon'>
+            <h3>coming soon</h3>
         </div>
     )
 }

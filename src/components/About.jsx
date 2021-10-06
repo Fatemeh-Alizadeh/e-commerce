@@ -1,5 +1,4 @@
 import React from 'react';
-import { useGlobalContext } from '../context'
 
 import about from '../img/heather-ford-5gkYsrH_ebY-unsplash.jpg'
 

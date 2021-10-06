@@ -3,8 +3,8 @@ import React from 'react'
 
 const Womens = () => {
     return (
-        <div>
-            womens page
+        <div className='comingSoon'>
+            <h3>coming soon</h3>
         </div>
     )
 }

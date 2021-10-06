@@ -2,7 +2,9 @@ import React from 'react'
 
 const Mens = () => {
     return (
-       <h1>Hello!</h1>
+        <div className='comingSoon'>
+            <h3>coming soon</h3>
+       </div>
     )
 }
 

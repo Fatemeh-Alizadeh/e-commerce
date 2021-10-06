@@ -2,8 +2,8 @@ import React from 'react'
 
 const Best = () => {
     return (
-        <div>
-            Best Page
+        <div className='comingSoon'>
+            <h3 >coming soon</h3>
         </div>
     )
 }
