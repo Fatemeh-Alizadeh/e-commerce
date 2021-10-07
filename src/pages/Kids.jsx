@@ -1,14 +1,34 @@
-import React, {useEffect} from 'react';
+import React, { useEffect, useState } from 'react';
+import { commerce } from "../lib/commerce";
 
-import { useGlobalContext } from '../context'
+import Product from '../components/Product';
+
 
 const Kids = () => {
-    const  [kidsProducts, setKidsProducts]  = useGlobalContext();
+    const [filterProducts, setFilterProducts] = useState([]);
+    
+   const fetchFilterProducts = async (category) => {
+    const {data} = await commerce.products.list({
+      category_slug: [category],
+    });
+    setFilterProducts(data)
+    }
    
-    return (
-        <div className='comingSoon'>
-            <h3>coming soon</h3>
+    useEffect(() => {
+    fetchFilterProducts('kids')
+    }, []);
+    return ( 
+    <article>
+        <div className="products-section">
+            {filterProducts.map((filterProduct) => {
+                return (
+                    <Product key={filterProduct.id} filterProduct={ filterProduct}/>
+                )
+            })}
+            
         </div>
+    </article>
+        
     )
 }
 
