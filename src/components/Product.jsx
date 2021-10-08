@@ -9,7 +9,7 @@ const Product = ({ filterProduct }) => {
             <button className='cart-button' type='button'> <FaCartPlus/></button>
             <button className='like-button' type='button'><FaHeart/></button>
             <h3 className='product-price'>{ filterProduct.price.formatted_with_symbol}</h3>
-            <h4 className='product-name'>{ filterProduct.name}</h4>
+            <p className='product-name'>{ filterProduct.name}</p>
             
         </div>
     )

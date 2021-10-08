@@ -328,7 +328,7 @@ PRODUCTS
   border: none;
   border-radius: 50%;
   position: absolute;
-  bottom: 1rem;
+  bottom: -0.5rem;
 }
 .cart-button {
   left: -1rem;
@@ -343,14 +343,38 @@ PRODUCTS
   padding: 0.5rem;
   border-radius: 10px;
   position: absolute;
-  bottom: 1rem;
-  left: 25%;
+  bottom: -0.5rem;
+  left: 30%;
 }
 .product-name {
-  font-size: 0.75rem;
+  display: inline-block;
+  width: 8rem;
+  font-size: 1rem;
   text-transform: capitalize;
   position: absolute;
-  bottom: -2rem;
-  left: 20%;
+  bottom: -4rem;
+  left: 30%;
   color: var(--primaryColor);
+}
+.loading-section {
+  padding-top: 200px;
+  font-size: 5rem;
+}
+@media only screen and (min-width: 600px) {
+  .products-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .product {
+    width: 40%;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .product {
+    width: 30%;
+  }
+  .product-img {
+    height: 500px;
+  }
 }

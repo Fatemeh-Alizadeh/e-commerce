@@ -13,6 +13,7 @@ import WishList from './pages/WishList'
 
 
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 
 
 
@@ -49,6 +50,7 @@ function App() {
           <Sale />
         </Route>
       </Switch>
+      <Footer />
     </Router>
   );
 }

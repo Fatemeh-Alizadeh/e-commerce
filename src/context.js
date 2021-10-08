@@ -6,19 +6,23 @@ const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
-  
+  const [cart, setCart] = useState([]);
 
-  const fetchProducts = async () => {
-    const {data} = await commerce.products.list();
+const fetchProducts = async () => {
+    const { data } = await commerce.products.list();
     setProducts(data);
   }
- 
 
+  const fetchCart = async () => {
+    setCart(await commerce.cart.retrieve())
+  }
+   
   useEffect(() => {
     fetchProducts();
-  }, []);
+    fetchCart();
+    }, []);
 
-  
+  console.log(cart)
 
   return (
     <AppContext.Provider

@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { commerce } from "../lib/commerce";
+import { useGlobalContext } from '../context'
 
 import Product from '../components/Product';
 
 
+
 const Kids = () => {
     const [filterProducts, setFilterProducts] = useState([]);
-    
-   const fetchFilterProducts = async (category) => {
+     const {loading } = useGlobalContext()
+ 
+    const fetchFilterProducts = async (category) => {
     const {data} = await commerce.products.list({
       category_slug: [category],
     });
@@ -17,6 +20,7 @@ const Kids = () => {
     useEffect(() => {
     fetchFilterProducts('kids')
     }, []);
+  
     return ( 
     <article>
         <div className="products-section">
