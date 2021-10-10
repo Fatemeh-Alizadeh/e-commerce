@@ -11,8 +11,8 @@ export default function NavBar () {
             </div>
             <div className='nav-list'>
                 <ul className='nav-link'>
-                     <li>
-                        <Link to='./WishList'><FaHeart/></Link>
+                     <li className='heart'>
+                        <Link to='./WishList'><FaHeart /></Link>
                     </li>
                     <li>
                         <Link to='./'>home</Link>

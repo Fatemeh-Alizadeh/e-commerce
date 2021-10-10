@@ -87,6 +87,72 @@ nav {
   display: flex;
   justify-content: space-around;
 }
+
+/* 
+=======
+LOADING
+=======
+ */
+.loading-section {
+  padding-top: 800px;
+}
+.container {
+  height: 15px;
+  width: 105px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+}
+.container .circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--primaryColor);
+  margin-right: 30px;
+  animation: move 500ms linear 0ms infinite;
+  -webkit-animation: move 500ms linear 0ms infinite;
+  -moz-animation: move 500ms linear 0ms infinite;
+  -o-animation: move 500ms linear 0ms infinite;
+}
+.container .circle:first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: grow 500ms linear 0ms infinite;
+  -webkit-animation: grow 500ms linear 0ms infinite;
+  -moz-animation: grow 500ms linear 0ms infinite;
+  -o-animation: grow 500ms linear 0ms infinite;
+}
+.container .circle:last-child {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 0;
+  animation: grow 500ms linear 0s infinite reverse;
+  -webkit-animation: grow 500ms linear 0s infinite reverse;
+  -moz-animation: grow 500ms linear 0s infinite reverse;
+  -o-animation: grow 500ms linear 0s infinite reverse;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0, 0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+@keyframes move {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(45px);
+  }
+}
+
 /* 
 =======
 FOOTER
@@ -344,13 +410,14 @@ PRODUCTS
   border-radius: 10px;
   position: absolute;
   bottom: -0.5rem;
-  left: 30%;
+  left: 35%;
 }
 .product-name {
   display: inline-block;
   width: 8rem;
   font-size: 1rem;
   text-transform: capitalize;
+  text-align: center;
   position: absolute;
   bottom: -4rem;
   left: 30%;

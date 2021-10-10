@@ -1,27 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { commerce } from "../lib/commerce";
-
+import { useGlobalContext } from '../context'
 import Product from '../components/Product';
+import Loading from '../components/Loading';
 
 const Best = () => {
-   const [filterProducts, setFilterProducts] = useState([]);
-    
-   const fetchFilterProducts = async (category) => {
-    const {data} = await commerce.products.list({
-      category_slug: [category],
-    });
-    setFilterProducts(data)
-    }
+    const { fetchFilterProducts, products } = useGlobalContext();
+    const [loading, setLoading] = useState(true);
    
-    useEffect(() => {
-    fetchFilterProducts('best')
-    }, []);
+   useEffect(() => {
+       fetchFilterProducts('best')
+     setLoading(false);
+   }, []);
+    
+    if (loading) {
+        return <Loading />
+    }
     return ( 
     <article>
         <div className="products-section">
-            {filterProducts.map((filterProduct) => {
+           {products.map((product) => {
                 return (
-                    <Product key={filterProduct.id} filterProduct={ filterProduct}/>
+                   <Product key={product.id} product={product} />
                 )
             })}
             
