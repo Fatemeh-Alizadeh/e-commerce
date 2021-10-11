@@ -1,31 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { useGlobalContext } from '../context'
-import Product from '../components/Product';
+import { useGlobalContext } from '../context';
 import Loading from '../components/Loading';
+import ProductsList from '../components/ProductsList';
 
 
 const New = () => {
-   const {  fetchFilterProducts ,products } = useGlobalContext();
-    const [loading, setLoading] = useState(true);
+   const {  fetchFilterProducts ,products, loading } = useGlobalContext();
+    
    useEffect(() => {
        fetchFilterProducts('new-arrival');
-       setLoading(false);
    }, []);
     
     if (loading) {
         return <Loading />
     }
     return ( 
-    <article>
-        <div className="products-section">
-           {products.map((product) => {
-                return (
-                   <Product key={product.id} product={product} />
-                )
-            })}
-            
-        </div>
-    </article>
+   <ProductsList/>
         
     )
 }

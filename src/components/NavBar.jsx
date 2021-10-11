@@ -11,8 +11,12 @@ export default function NavBar () {
             </div>
             <div className='nav-list'>
                 <ul className='nav-link'>
-                     <li className='heart'>
-                        <Link to='./WishList'><FaHeart /></Link>
+                    <li>
+                        <div className='nav-icon'>
+                            <Link to='./WishList'><FaHeart /></Link>
+                            <span className='nav-badge'>3</span>
+                        </div>
+                        
                     </li>
                     <li>
                         <Link to='./'>home</Link>
@@ -26,8 +30,12 @@ export default function NavBar () {
                      <li>
                         <Link to='./Womens'>womens</Link>
                     </li>
-                     <li>
-                        <Link to='./Cart'><FaCartPlus/></Link>
+                    <li>
+                        <div className='nav-icon'>
+                            <Link to='./Cart'><FaCartPlus/></Link>
+                            <span className='nav-badge'>3</span>
+                        </div>
+                        
                     </li>
                 </ul>
             </div>

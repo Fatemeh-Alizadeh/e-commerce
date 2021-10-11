@@ -6,6 +6,7 @@ const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
 
 /* const fetchProducts = async () => {
@@ -26,22 +27,25 @@ const AppProvider = ({ children }) => {
   }
 
   const handleAddToCart = async (productId, quantity) => {
-    const item = await commerce.cart.add(productId.quantity)
+    const item = await commerce.cart.add(productId,quantity)
     setCart(item.cart)
   }
    
   useEffect(() => {
     fetchCart();
+    setLoading(false);
    }, []);
 
-
+console.log(cart)
 
   return (
     <AppContext.Provider
       value={
         {
           products,
-          fetchFilterProducts
+          fetchFilterProducts,
+          cart,
+          handleAddToCart
         }
       }
     >
