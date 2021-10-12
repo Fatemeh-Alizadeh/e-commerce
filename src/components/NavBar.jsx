@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import { useGlobalContext } from '../context';
 import { FaCartPlus, FaHeart } from "react-icons/fa";
 
-export default function NavBar () {
+export default function NavBar() {
+    const { cart } = useGlobalContext();
     return (
         <nav>
             <div className='logo'>
@@ -33,7 +34,7 @@ export default function NavBar () {
                     <li>
                         <div className='nav-icon'>
                             <Link to='./Cart'><FaCartPlus/></Link>
-                            <span className='nav-badge'>3</span>
+                            <span className='nav-badge'>{ cart.total_items}</span>
                         </div>
                         
                     </li>
