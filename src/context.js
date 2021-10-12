@@ -27,8 +27,12 @@ const AppProvider = ({ children }) => {
   }
 
   const handleAddToCart = async (productId, quantity) => {
-    const item = await commerce.cart.add(productId,quantity)
-    setCart(item.cart)
+    const {cart} = await commerce.cart.add(productId,quantity)
+    setCart(cart)
+  }
+  const handleRemoveItem = async (productId) => {
+    const { cart } = await commerce.cart.remove(productId)
+    setCart(cart)
   }
    
   useEffect(() => {
@@ -43,9 +47,11 @@ console.log(cart)
       value={
         {
           products,
-          fetchFilterProducts,
+          loading,
           cart,
-          handleAddToCart
+          fetchFilterProducts,
+          handleAddToCart,
+          handleRemoveItem
         }
       }
     >
