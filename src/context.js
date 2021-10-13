@@ -8,11 +8,7 @@ const AppProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
-
-/* const fetchProducts = async () => {
-    const { data } = await commerce.products.list();
-    setProducts(data);
-  } */
+  const [wishList, setWishList] = useState([]);
   
   const fetchFilterProducts = async (category) => {
     const {data} = await commerce.products.list({
@@ -34,13 +30,24 @@ const AppProvider = ({ children }) => {
     const { cart } = await commerce.cart.remove(productId)
     setCart(cart)
   }
+  const handleUpdateCart = async (productId, quantity) => {
+    const { cart } = await commerce.cart.update(productId, { quantity })
+    setCart(cart)
+  }
+  const handleEmptyCart = async () => {
+    const { cart } = await commerce.cart.empty()
+    setCart(cart)
+  }
+
+  const handleAddToWishList = (productId ) => {
+    console.log(productId)
+  }
    
   useEffect(() => {
     fetchCart();
     setLoading(false);
    }, []);
 
-console.log(cart)
 
   return (
     <AppContext.Provider
@@ -49,9 +56,13 @@ console.log(cart)
           products,
           loading,
           cart,
+          wishList,
           fetchFilterProducts,
           handleAddToCart,
-          handleRemoveItem
+          handleRemoveItem,
+          handleUpdateCart,
+          handleEmptyCart,
+          handleAddToWishList
         }
       }
     >

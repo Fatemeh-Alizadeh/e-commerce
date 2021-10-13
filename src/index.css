@@ -7,7 +7,7 @@ Variables
 :root {
   --primaryColor: #f0d8cc;
   --offWhite: #f7f7f7;
-  --mainBlack: #222;
+  --mainDark: #7f5841;
   --mainBackground: #f1f5f8;
   --mainTransition: all 0.3s linear;
   --mainSpacing: 0.3rem;
@@ -30,7 +30,7 @@ Global Styles
 
 body {
   font-family: var(--fontFamily);
-  color: var(--mainBlack);
+  color: var(--mainDark);
   background: var(--mainBackground);
   line-height: 1.4;
   font-size: 1rem;
@@ -53,13 +53,14 @@ ul {
 }
 a {
   text-decoration: none;
-  color: var(--mainBlack);
+  color: var(--mainDark);
 }
 main {
   width: 100%;
 }
 button {
   font: var(--fontFamily);
+  cursor: pointer;
 }
 
 /* 
@@ -406,7 +407,9 @@ PRODUCTS
 }
 .cart-button,
 .like-button {
-  font-size: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1rem;
   padding: 0.5rem;
   background-color: var(--primaryColor);
   color: var(--offWhite);
@@ -414,7 +417,6 @@ PRODUCTS
   border-radius: 50%;
   position: absolute;
   bottom: -0.5rem;
-  cursor: pointer;
 }
 .cart-button {
   right: -1rem;
@@ -441,7 +443,7 @@ PRODUCTS
   position: absolute;
   bottom: -4rem;
   left: 30%;
-  color: var(--primaryColor);
+  color: var(--mainDark);
 }
 .loading-section {
   padding-top: 200px;
@@ -470,7 +472,7 @@ PRODUCTS
 CART
 ========
  */
-.cart-epmty {
+.empty {
   padding-top: 200px;
   text-align: center;
   text-transform: uppercase;
@@ -510,9 +512,7 @@ CART
   color: var(--offWhite);
   cursor: pointer;
 }
-.cart-remove :hover {
-  background-color: yellowgreen;
-}
+
 .cart-control {
   margin-top: 2rem;
   display: flex;
@@ -526,7 +526,7 @@ CART
 .cart-decrease {
   width: 1.5rem;
   height: 1.5rem;
-  text-align: center;
+  padding: 0.15rem;
   background-color: var(--primaryColor);
   color: var(--offWhite);
   border-radius: 50%;
@@ -555,3 +555,8 @@ CART
   text-transform: capitalize;
   margin-top: 1rem;
 }
+/* 
+========
+WISHLIST
+========
+ */
