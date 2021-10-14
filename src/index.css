@@ -60,7 +60,13 @@ main {
 }
 button {
   font: var(--fontFamily);
+  color: var(--mainDark);
   cursor: pointer;
+  text-transform: capitalize;
+  transition: transform ease-in-out 0.1s;
+}
+button:hover {
+  transform: scale(1.1);
 }
 
 /* 
@@ -497,7 +503,7 @@ CART
 }
 .cart-desc {
   width: 30vw;
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   margin-top: 2rem;
 }
 .cart-desc p {
@@ -560,3 +566,32 @@ CART
 WISHLIST
 ========
  */
+.wishlist {
+  width: 90vw;
+  margin: 0 auto;
+  padding-top: 150px;
+  text-align: center;
+}
+.wishlist-item {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.wishlist-controll {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 0.5rem;
+}
+.wishlist-button,
+.empty-wishlist {
+  background-color: var(--primaryColor);
+  color: var(--mainDark);
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+.empty-wishlist {
+  margin-top: 1rem;
+}

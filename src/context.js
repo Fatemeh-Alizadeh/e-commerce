@@ -1,6 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
 import { commerce } from "./lib/commerce";
+import WishList from "./pages/WishList";
 
+const getLocalStorage = () => {
+  let wishList = localStorage.getItem('wishList');
+  if (wishList) {
+    return (wishList = JSON.parse(localStorage.getItem('wishList')));
+  } else {
+    return [];
+  }
+};
 
 const AppContext = React.createContext()
 
@@ -8,7 +17,7 @@ const AppProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
-  const [wishList, setWishList] = useState([]);
+  const [wishList, setWishList] = useState(getLocalStorage());
   
   const fetchFilterProducts = async (category) => {
     const {data} = await commerce.products.list({
@@ -39,14 +48,25 @@ const AppProvider = ({ children }) => {
     setCart(cart)
   }
 
-  const handleAddToWishList = (productId ) => {
-    console.log(productId)
+  const handleAddToWishList = (product) => {
+    setWishList([...wishList, product])
+    console.log(wishList)
+  }
+  const handleRemoveWishListItem = (productId) => {
+    setWishList(wishList.filter((item) => item.product.id !== productId));
+  }
+  const handleEmptyWishList = () => {
+    setWishList([]);
   }
    
+   useEffect(() => {
+    localStorage.setItem('wishList', JSON.stringify(wishList));
+   }, [wishList]);
+  
   useEffect(() => {
     fetchCart();
     setLoading(false);
-   }, []);
+  }, [])
 
 
   return (
@@ -62,7 +82,9 @@ const AppProvider = ({ children }) => {
           handleRemoveItem,
           handleUpdateCart,
           handleEmptyCart,
-          handleAddToWishList
+          handleAddToWishList,
+          handleRemoveWishListItem,
+          handleEmptyWishList
         }
       }
     >
